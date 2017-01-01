@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   def index
-    @customer = Customer.all
+    # @customer = Customer.all
+    @customers = Customer.page(params[:page])
   end
 
   def new
@@ -42,7 +43,8 @@ class CustomersController < ApplicationController
     redirect_to root_path
   end
   private 
+  
   def customer_params
-    params.require (:customer).permit(:family_name, :given_name, :email)
+    params.require(:customer).permit(:family_name, :given_name, :email)
   end
 end

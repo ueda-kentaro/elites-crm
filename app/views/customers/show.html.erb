@@ -3,10 +3,10 @@
         <h1>顧客詳細</h1>
         <dl>
             <dt>お名前</dt>
-            <dd style ="margin:0px 0px 10px 20px"><%= "@customer.full_name" %></dd>
-                <!--<%=" @cutomer.family_name"%><%= "@customer.given_name"%></dd>-->
+            <dd style ="margin:0px 0px 10px 20px"><%= @customer.full_name %></dd>
+                <!--<%=" @cutomer.family_name"%><%= @customer.given_name %></dd>-->
             <dt>電子メール</dt>
-            <dd style ="margin:0px 0px 10px 20px"><%= "@customer.email"%></dd>
+            <dd style ="margin:0px 0px 10px 20px"><%= @customer.email %></dd>
         </dl>
         <%= link_to '編集', edit_customer_path(@customer), class: "btn btn-default" %>
         <%= link_to '戻る', customers_path, class: "btn btn-default" %>

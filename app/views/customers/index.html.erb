@@ -19,7 +19,7 @@
                         <th>リンク</th>
                     </thead>
                     <tbody>
-                        <% @customer.each do |customer| %>
+                        <% @customers.each do |customer| %>
                         <tr>
                             <td><%= customer.family_name %></td>
                             <td><%= customer.given_name %></td>
@@ -29,6 +29,7 @@
                         <% end %>
                     </tbody>
                 </table>
+                <%= paginate @customers %>
             </div>
         </div>
     </div>
