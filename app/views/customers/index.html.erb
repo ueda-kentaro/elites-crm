@@ -18,6 +18,7 @@
                         <th>電子メール</th>
                         <th>リンク</th>
                         <th>所属会社</th>
+                        <th>役職</th>
                     </thead>
                     <tbody>
                         <% @customers.each do |customer| %>
@@ -26,6 +27,7 @@
                             <td><%= customer.given_name %></td>
                             <td><%= customer.email %></td>
                             <td><%= customer.company.name %></td>
+                            <td><%= customer.post.position_name %></td>
                             <td><%= link_to '詳細', customer, class: "btn btn-default btn-xs"%></td>
                         </tr>
                         <% end %>
