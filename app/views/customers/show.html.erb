@@ -20,18 +20,33 @@
             <div class = "media">
                 <div class = "media-body">
                     <%= simple_format(comment.body) %>
-                </div>
                 <p class = "text-muted">
                     投稿記事:<%= comment.created_at.strftime('%Y%m%d %H:%M') %>
-                    
                     <%= link_to "削除する",comment_path(comment), method: :delete %>
                 </p>
+                </div>
             </div>            
         <% end %>    
         <hr />
+        
+        <!-- ここにエラーメッセージを表示する処理を記述する -->
+        <% if @comment.errors.any? %>
+        <div class="alert alert-danger">
+            <p><b><%= @comment.errors.count %>件のエラーがあります</b></p>
+        
+            <ul>
+            <% @comment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+        </div>
+        <% end %>
+
+        
         <%= form_for(@comment, url: { controller: :comments, action: :create}) do |f| %>
+            
             <div class = "form-group">
-                <%= f.label :body , '対応内応' %><br />
+                <%= f.label :body , '対応内容' %><br />
                 <%= f.text_area :body , class: "form-control" %>
             </div>
             <%= f.hidden_field :customer_id, value: @customer.id %>
