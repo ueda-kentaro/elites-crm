@@ -41,11 +41,11 @@
             </ul>
         </div>
         <% end %>
-
         
         <%= form_for(@comment, url: { controller: :comments, action: :create}) do |f| %>
-            
+    
             <div class = "form-group">
+                <%= image_tag 'comment.current_user.image_url', width: "64", class: "iamge-object", alt: "プロフィール"%>
                 <%= f.label :body , '対応内容' %><br />
                 <%= f.text_area :body , class: "form-control" %>
             </div>
