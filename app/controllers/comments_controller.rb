@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -13,11 +12,13 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-        if @comment.save
-            redirect_to customer_path(@comment.customer_id)
-        else
-            redirect_to customer_path(@comment.customer_id)
-        end
+    if @comment.save
+      redirect_to customer_path(@comment.customer_id)
+    else
+      @customer = @comment.customer
+      @comments =  @customer.comments
+      render template: "customers/show"  
+    end
   end
 
   def edit
@@ -36,7 +37,7 @@ class CommentsController < ApplicationController
   end
   private
   def comment_params
-    params.require(:comment).permit(:body,:customer_id)
+    params.require(:comment).permit(:body,:customer_id,:user_id)
   end  
 end
 
