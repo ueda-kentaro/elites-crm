@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20170107075442) do
     t.datetime "updated_at",                          null: false
     t.string   "family_name"
     t.string   "given_name"
-    t.text     "image_url"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

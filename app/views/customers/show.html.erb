@@ -4,7 +4,6 @@
         <dl>
             <dt>お名前</dt>
             <dd style ="margin:0px 0px 10px 20px"><%= @customer.full_name %></dd>
-                <!--<%=" @cutomer.family_name"%><%= @customer.given_name %></dd>-->
             <dt>電子メール</dt>
             <dd style ="margin:0px 0px 10px 20px"><%= @customer.email %></dd>
             <dt>会社名</dt>
@@ -45,7 +44,7 @@
         <%= form_for(@comment, url: { controller: :comments, action: :create}) do |f| %>
     
             <div class = "form-group">
-                <%= image_tag 'comment.current_user.image_url', width: "64", class: "iamge-object", alt: "プロフィール"%>
+                <%= image_tag current_user.image_url, width: "64", class: "image-object", alt:"プロフィール"%>
                 <%= f.label :body , '対応内容' %><br />
                 <%= f.text_area :body , class: "form-control" %>
             </div>
